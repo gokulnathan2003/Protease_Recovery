@@ -56,11 +56,11 @@ st.markdown("<h1 style='text-align: center; font-size: 50px;'>🔬 Extraction Ef
 
 
 # Efficiency selection
-eff_choice = st.radio("Select the Efficiency to Predict:", ["Efficiency 1", "Efficiency 2", "Efficiency 3"])
+eff_choice = st.radio("Select the Efficiency to Predict:", ["Efficiency 1 (Pineapple)", "Efficiency 2 (Papaya)", "Efficiency 3 (Ginger)"])
 
 # Load and train model based on selection
 def load_model_and_features(choice):
-    if choice == "Efficiency 1":
+    if choice == "Efficiency 1 (Pineapple)":
         df = pd.read_csv("efficiency1.csv")
         X = df.drop(columns=["Extraction Efficiency 1", "Molar ratio", "Sample Ratio"])
         y = df["Extraction Efficiency 1"]
@@ -70,7 +70,7 @@ def load_model_and_features(choice):
         model.fit(X_scaled, y)
         return model, scaler, X.columns, "efficiency1.csv"
 
-    elif choice == "Efficiency 2":
+    elif choice == "Efficiency 2 (Papaya)":
         df = pd.read_csv("efficiency2.csv")
         X = df.drop(columns=["Extraction Efficiency 2", "Molar ratio", "Sample Ratio"])
         y = df["Extraction Efficiency 2"]
@@ -80,7 +80,7 @@ def load_model_and_features(choice):
         model.fit(X_scaled, y)
         return model, scaler, X.columns, "efficiency2.csv"
 
-    elif choice == "Efficiency 3":
+    elif choice == "Efficiency 3 (Ginger)":
         df = pd.read_csv("efficiency3.csv")
         df_clean = df.drop(columns=["Molar ratio", "Sample Ratio"])
         X = df_clean.drop(columns=["Extraction Efficiency 3"])
